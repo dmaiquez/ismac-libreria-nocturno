@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Cliente {
 	
+	// haciendo pruebas con git y push 
+	
 	// atributos
 	private int idCliente;
 	private String cedula;
