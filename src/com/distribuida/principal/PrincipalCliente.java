@@ -1,6 +1,11 @@
 package com.distribuida.principal;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.distribuida.dao.ClienteDAO;
+import com.distribuida.entities.Cliente;
 
 public class PrincipalCliente {
 
@@ -10,6 +15,14 @@ public class PrincipalCliente {
 		// Patron de IoC o Inversión de Control
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml"); 
 		
+		ClienteDAO clienteDAO = context.getBean("clienteDAOImpl", ClienteDAO.class);
+		
+		
+		List<Cliente> clientes = clienteDAO.findAll(); 
+		
+		clientes.forEach(item -> {			
+			System.out.println(item.toString());
+		});
 		
 		context.close();
 		
