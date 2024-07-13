@@ -22,11 +22,19 @@ public class PrincipalAutor {
 		//autorDAO.add(autor);		
 		// up
 		Autor autor2 = new Autor(55,"juan2","taipe2","pais2","direccion2","09876543212","jtaipe2@correo.com");
-		autorDAO.up(autor2);
+		//autorDAO.up(autor2);
 		// del
 		//autorDAO.del(40);
 		// findOne
-		System.out.println("**************** DEL *************"+autorDAO.findOne(40));
+		try {
+			
+			System.out.println("**************** DEL *************"+autorDAO.findOne(56));
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 		// findAll
 		//List<Autor> Autors = autorDAO.findAll(); 		
 		autorDAO.findAll().forEach(item -> { System.out.println(item.toString()); });
