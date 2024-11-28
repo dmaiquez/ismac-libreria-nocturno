@@ -13,6 +13,7 @@ import com.distribuida.entities.Cliente;
 
 
 
+//@Repository("beanClienteDAOImpl")
 @Repository
 public class ClienteDAOImpl implements ClienteDAO {
 
@@ -31,27 +32,35 @@ public class ClienteDAOImpl implements ClienteDAO {
 	}
 
 	@Override
+	@Transactional
 	public Cliente findOne(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Cliente.class, id);
 	}
 
 	@Override
+	@Transactional
 	public void add(Cliente cliente) {
 		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(cliente);
 	}
 
 	@Override
+	@Transactional
 	public void up(Cliente cliente) {
 		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(cliente);
 	}
 
 	@Override
+	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(findOne(id));
 	}
 
 }
