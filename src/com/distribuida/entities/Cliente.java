@@ -29,6 +29,7 @@ public class Cliente {
 	@Column(name = "correo")
 	private String correo;
 	
+	
 		// constructores
 	public Cliente() { }
 
