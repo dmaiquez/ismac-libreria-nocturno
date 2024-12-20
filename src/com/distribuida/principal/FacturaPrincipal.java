@@ -26,6 +26,8 @@ public class FacturaPrincipal {
 		
 		System.out.println(factura.toString());
 		
+		
+		
 	}
 
 }
