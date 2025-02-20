@@ -13,12 +13,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Table(name = "factura")
 public class Factura {
 
-	// SQL:   1:1  <=>  Java: @OneToOne
-	// SQL:   1:N  <=>  Java: @OneToMany    , @ManyToOne
+	// SQL:    1:1    <=>  Java: @OneToOne
+	// SQL:    1:N    <=>  Java: @OneToMany  , @ManyToOne 
+	
 	
 	
 	@Id
@@ -35,11 +37,10 @@ public class Factura {
 	private Double iva;
 	@Column(name = "total")
 	private Double total;
-	//private int idCliente;
-	
+	// private int idCliente;
 	@JoinColumn(name = "id_cliente")
-	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	private Cliente cliente;	
+	@ManyToOne(cascade =  {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})	
+	private Cliente cliente;
 	
 	public Factura() { }
 
@@ -55,6 +56,7 @@ public class Factura {
 		this.cliente = cliente;
 	}
 
+	
 	public int getIdFactura() {
 		return idFactura;
 	}
@@ -107,7 +109,7 @@ public class Factura {
 		return cliente;
 	}
 
-	// metodo inyector
+	// metodo inyector 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
@@ -117,6 +119,7 @@ public class Factura {
 		return "Factura [idFactura=" + idFactura + ", numFactura=" + numFactura + ", fecha=" + fecha + ", totalNeto="
 				+ totalNeto + ", iva=" + iva + ", total=" + total + ", cliente=" + cliente + "]";
 	}
+	
 	
 	
 }

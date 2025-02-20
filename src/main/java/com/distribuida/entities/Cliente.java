@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "cliente")
 public class Cliente {
-
+	
 		// atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +28,9 @@ public class Cliente {
 	private String telefono;
 	@Column(name = "correo")
 	private String correo;
+
+	// Constructores
 	
-	
-		// constructores
 	public Cliente() { }
 
 	public Cliente(int idCliente, String cedula, String nombre, String apellido, String direccion, String telefono,
@@ -45,9 +45,9 @@ public class Cliente {
 		this.correo = correo;
 	}
 
+
+	//Metodos getters and setters
 	
-	//metodos getters and setters
-		
 	public int getIdCliente() {
 		return idCliente;
 	}
@@ -111,6 +111,7 @@ public class Cliente {
 				+ apellido + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + "]";
 	}
 
+	
 	
 	
 }
